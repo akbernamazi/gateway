@@ -2,9 +2,7 @@ const axios = require("axios");
 
 exports.signup = async (req, res) => {
   await axios
-    .post("http://localhost:8080/api/auth/signup", {
-      body: req.body,
-    })
+    .post("http://localhost:8080/api/auth/signup", req.body)
     .then((response) => {
       console.log(response.data),
         res.status(response.status).send(response.data);
@@ -17,9 +15,7 @@ exports.signup = async (req, res) => {
 
 exports.signin = async (req, res) => {
   await axios
-    .post("http://localhost:8080/api/auth/signin", {
-      body: req.body,
-    })
+    .post("http://localhost:8080/api/auth/signin", req.body)
     .then((response) => {
       //   console.log(response.data);
       res.status(response.status).send(response.data);
@@ -37,13 +33,13 @@ exports.remove = async (req, res) => {
       data: req.body,
     })
     .then((response) => {
-      console.log("response");
-      console.log(response.status);
-      console.log(response.data);
+      //   console.log("response");
+      //   console.log(response.status);
+      //   console.log(response.data);
       res.status(response.status).send(response.data);
     })
     .catch((error) => {
-      console.log(error.message);
+      //   console.log(error.message);
       //   console.log(error.response.status);
       res.status(error.response.status).send(error.response.data.message);
     });
@@ -52,9 +48,7 @@ exports.remove = async (req, res) => {
 exports.update = async (req, res) => {
   console.log(req.body);
   await axios
-    .put("http://localhost:8080/api/auth/update_password", {
-      body: req.body,
-    })
+    .put("http://localhost:8080/api/auth/update_password", req.body)
     .then((response) => {
       console.log(response.data),
         res.status(response.status).send(response.data);

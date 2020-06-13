@@ -18,10 +18,10 @@ verifyToken = async (req, res, next) => {
     })
     .catch((error) => {
       //   console.log("XX");
-      //   console.log(error.response.data.message);
-      //   res.status(error.response.status).send(error.response.data.message);
+      console.log(error.response);
+      res.status(error.response.status).send(error.response.data.message);
     });
-  next();
+  //   next();
 };
 
 const authJwt = {
