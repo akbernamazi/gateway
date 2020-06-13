@@ -9,16 +9,19 @@ verifyToken = async (req, res, next) => {
     })
     .then((response) => {
       if (response.status == 200) {
+        // console.log(response);
+        req.uid = { uid: response.data.uid };
+        // console.log(req.uid);
         next();
       } else {
         // console.log("XXX");
-        console.log(response.data);
+        // console.log(response);
         res.status(response.status).send(response.data);
       }
     })
     .catch((error) => {
       //   console.log("XX");
-      console.log(error.response);
+      //   console.log(error.response);
       res.status(error.response.status).send(error.response.data.message);
     });
   //   next();
