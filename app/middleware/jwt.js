@@ -10,7 +10,9 @@ verifyToken = async (req, res, next) => {
     .then((response) => {
       if (response.status == 200) {
         // console.log(response);
-        req.uid = { uid: response.data.uid };
+        // req.uid = { uid: response.data.uid };
+        req.body.uid = response.data.uid;
+        // console.log(req.body);
         // console.log(req.uid);
         next();
       } else {

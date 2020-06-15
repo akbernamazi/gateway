@@ -1,10 +1,9 @@
 const axios = require("axios");
 
-// exports
-exports.update = async (req, res) => {
-  console.log(req.body);
+exports.get_details = async (req, res) => {
+  //   console.log(req.body);
   await axios
-    .post("http://localhost:8081/api/ucd/update", req.body)
+    .get("http://localhost:8082/api/ucd/get_details", { data: req.body })
     .then((response) => {
       //   console.log(response.data);
       res.status(response.status).send(response.data);
@@ -16,10 +15,11 @@ exports.update = async (req, res) => {
     });
 };
 
-exports.details = async (req, res) => {
-  //   console.log(req.body);
+// exports
+exports.update = async (req, res) => {
+  console.log(req.body);
   await axios
-    .get("http://localhost:8081/api/ucd/get_details", { data: req.body })
+    .post("http://localhost:8081/api/ucd/update", req.body)
     .then((response) => {
       //   console.log(response.data);
       res.status(response.status).send(response.data);

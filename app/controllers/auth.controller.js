@@ -27,8 +27,7 @@ exports.signin = async (req, res) => {
 };
 
 exports.remove = async (req, res) => {
-  console.log(req.uid);
-  req.body.uid = req.uid.uid;
+  console.log(req.body);
   await axios
     .delete("http://localhost:8080/api/auth/delete_account", {
       data: req.body,
@@ -47,11 +46,9 @@ exports.remove = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-  console.log(req.uid);
+  console.log(req.body);
   await axios
-    .put("http://localhost:8080/api/auth/update_password", req.body, {
-      data: req.uid,
-    })
+    .put("http://localhost:8080/api/auth/update_password", req.body)
     .then((response) => {
       console.log(response.data);
       res.status(response.status).send(response.data);

@@ -7,6 +7,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require("./app/routes/auth.routes")(app);
+require("./app/routes/ucd.routes")(app);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
